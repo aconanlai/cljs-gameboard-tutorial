@@ -1,8 +1,7 @@
 (ns gameboard.core
     (:require [
-      goog.dom :as dom
-    ]))
-
+               goog.dom :as dom]))
+    
 (enable-console-print!)
 
 (def ctx (.getContext (dom/getElement "canvas") "2d"))
@@ -63,8 +62,8 @@
     (fn [y]
       (mapv
         (fn [x] (draw-tile! (* tile-size x) (* tile-size y) (tile-color x y)))
-      (range 0 w)))
-(range 0 h)))
+       (range 0 w)))
+   (range 0 h)))
 
 (def tile-offset (/ tile-size 2))
 
@@ -80,9 +79,8 @@
 
     (set! (.-lineWidth ctx) 3)
     (set! (.-strokeStyle ctx) "white")
-    (.stroke ctx)
-    ))
-
+    (.stroke ctx)))
+    
 (draw-board! 8 8)
 
 (mapv draw-unit! (:units @game-state))
